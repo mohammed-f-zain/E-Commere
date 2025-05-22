@@ -5,7 +5,7 @@ const products = [
         name: "Classic White T-Shirt",
         price: 29.99,
         category: "men",
-        image: "/images/Dokotoo Women's Dress 2025 Summer Deep V Neck Elegant Ruffle Mini Dress Waist Dresses S-2XL.jpg",
+        image: "/images/classicwhitetshirt.jpg",
         colors: ["White", "Black", "Gray"],
         sizes: ["S", "M", "L", "XL"],
         rating: 4.5,
@@ -16,7 +16,7 @@ const products = [
         name: "Slim Fit Jeans",
         price: 59.99,
         category: "men",
-        image: "/images/Dokotoo Women's Dress 2025 Summer Deep V Neck Elegant Ruffle Mini Dress Waist Dresses S-2XL.jpg",
+        image: "/images/slimfitjeans.jpg",
         colors: ["Blue", "Black"],
         sizes: ["30", "32", "34", "36"],
         rating: 4.3,
@@ -27,7 +27,7 @@ const products = [
         name: "Floral Summer Dress",
         price: 49.99,
         category: "women",
-        image: "/images/Dokotoo Women's Dress 2025 Summer Deep V Neck Elegant Ruffle Mini Dress Waist Dresses S-2XL.jpg",
+        image: "/images/FloralSummerDress.jpg",
         colors: ["Pink", "Blue", "Yellow"],
         sizes: ["XS", "S", "M", "L"],
         rating: 4.7,
@@ -38,7 +38,7 @@ const products = [
         name: "Leather Jacket",
         price: 129.99,
         category: "men",
-        image: "/images/Dokotoo Women's Dress 2025 Summer Deep V Neck Elegant Ruffle Mini Dress Waist Dresses S-2XL.jpg",
+        image: "/images/LeatherJacket.jpg",
         colors: ["Black", "Brown"],
         sizes: ["M", "L", "XL"],
         rating: 4.8,
@@ -49,7 +49,7 @@ const products = [
         name: "Casual Blouse",
         price: 39.99,
         category: "women",
-        image: "/images/Dokotoo Women's Dress 2025 Summer Deep V Neck Elegant Ruffle Mini Dress Waist Dresses S-2XL.jpg",
+        image: "/images/casualBlouse.jpg",
         colors: ["White", "Black", "Red"],
         sizes: ["S", "M", "L"],
         rating: 4.4,
@@ -60,7 +60,7 @@ const products = [
         name: "Denim Jacket",
         price: 79.99,
         category: "women",
-        image: "/images/Dokotoo Women's Dress 2025 Summer Deep V Neck Elegant Ruffle Mini Dress Waist Dresses S-2XL.jpg",
+        image: "/images/DenimJacket.jpg",
         colors: ["Blue", "Black"],
         sizes: ["S", "M", "L", "XL"],
         rating: 4.6,
@@ -71,7 +71,7 @@ const products = [
         name: "Formal Shirt",
         price: 45.99,
         category: "men",
-        image: "/images/Dokotoo Women's Dress 2025 Summer Deep V Neck Elegant Ruffle Mini Dress Waist Dresses S-2XL.jpg",
+        image: "/images/FormalShirt.jpg",
         colors: ["White", "Blue", "Pink"],
         sizes: ["S", "M", "L", "XL"],
         rating: 4.5,
@@ -82,7 +82,7 @@ const products = [
         name: "Summer Shorts",
         price: 34.99,
         category: "men",
-        image: "/images/Dokotoo Women's Dress 2025 Summer Deep V Neck Elegant Ruffle Mini Dress Waist Dresses S-2XL.jpg",
+        image: "/images/SummerShorts.jpg",
         colors: ["Khaki", "Navy", "Black"],
         sizes: ["30", "32", "34", "36"],
         rating: 4.2,
@@ -93,7 +93,7 @@ const products = [
         name: "Knit Sweater",
         price: 69.99,
         category: "women",
-        image: "/images/Dokotoo Women's Dress 2025 Summer Deep V Neck Elegant Ruffle Mini Dress Waist Dresses S-2XL.jpg",
+        image: "/images/KnitSweater.jpg",
         colors: ["Gray", "Beige", "Black"],
         sizes: ["S", "M", "L"],
         rating: 4.7,
@@ -104,7 +104,7 @@ const products = [
         name: "Pleated Skirt",
         price: 54.99,
         category: "women",
-        image: "/images/Dokotoo Women's Dress 2025 Summer Deep V Neck Elegant Ruffle Mini Dress Waist Dresses S-2XL.jpg",
+        image: "/images/PleatedSkirt.jpg",
         colors: ["Black", "Navy", "Burgundy"],
         sizes: ["XS", "S", "M", "L"],
         rating: 4.6,
@@ -115,7 +115,7 @@ const products = [
         name: "Hooded Sweatshirt",
         price: 49.99,
         category: "men",
-        image: "/images/Dokotoo Women's Dress 2025 Summer Deep V Neck Elegant Ruffle Mini Dress Waist Dresses S-2XL.jpg",
+        image: "/images/HoodedSweatshirt.jpg",
         colors: ["Gray", "Black", "Navy"],
         sizes: ["S", "M", "L", "XL"],
         rating: 4.4,
@@ -126,7 +126,7 @@ const products = [
         name: "Maxi Dress",
         price: 79.99,
         category: "women",
-        image: "/images/Dokotoo Women's Dress 2025 Summer Deep V Neck Elegant Ruffle Mini Dress Waist Dresses S-2XL.jpg",
+        image: "/images/MaxiDress.jpg",
         colors: ["Black", "Red", "Blue"],
         sizes: ["S", "M", "L"],
         rating: 4.8,
@@ -329,7 +329,7 @@ function displayProducts(products, containerId) {
             <img src="${product.image}" alt="${product.name}">
             <div class="product-info">
                 <h3>${product.name}</h3>
-                <div class="product-price">$${product.price.toFixed(2)}</div>
+                <div class="product-price">${product.price.toFixed(2)} JOD</div>
                 <div class="product-rating">
                     ${'★'.repeat(Math.floor(product.rating))}${'☆'.repeat(5 - Math.floor(product.rating))}
                     <span>(${product.rating})</span>
@@ -399,9 +399,9 @@ function displayOrderSummary() {
 
     if (!cart || cart.length === 0) {
         orderSummaryItems.innerHTML = '<p>Your cart is empty.</p>';
-        subtotal.textContent = '$0.00';
-        shipping.textContent = '$0.00';
-        total.textContent = '$0.00';
+        subtotal.textContent = '0.00 JOD';
+        shipping.textContent = '0.00 JOD';
+        total.textContent = '0.00 JOD';
         return;
     }
 
@@ -414,7 +414,7 @@ function displayOrderSummary() {
                     <p>Quantity: ${item.quantity}</p>
                 </div>
             </div>
-            <span class="product-price">$${(item.price * item.quantity).toFixed(2)}</span>
+            <span class="product-price">${(item.price * item.quantity).toFixed(2)} JOD</span>
         </div>
     `).join('');
 
@@ -422,9 +422,9 @@ function displayOrderSummary() {
     const shippingAmount = subtotalAmount > 50 ? 0 : 10;
     const totalAmount = subtotalAmount + shippingAmount;
 
-    subtotal.textContent = `$${subtotalAmount.toFixed(2)}`;
-    shipping.textContent = shippingAmount === 0 ? 'Free' : `$${shippingAmount.toFixed(2)}`;
-    total.textContent = `$${totalAmount.toFixed(2)}`;
+    subtotal.textContent = `${subtotalAmount.toFixed(2)} JOD`;
+    shipping.textContent = shippingAmount === 0 ? 'Free' : `${shippingAmount.toFixed(2)} JOD`;
+    total.textContent = `${totalAmount.toFixed(2)} JOD`;
 }
 
 function initializeCheckoutPage() {
@@ -660,9 +660,9 @@ function updateCartDisplay() {
                 <a href="shop.html" class="btn">Continue Shopping</a>
             </div>
         `;
-        subtotal.textContent = '$0.00';
-        shipping.textContent = '$0.00';
-        total.textContent = '$0.00';
+        subtotal.textContent = '0.00 JOD';
+        shipping.textContent = '0.00 JOD';
+        total.textContent = '0.00 JOD';
         return;
     }
 
@@ -672,9 +672,9 @@ function updateCartDisplay() {
     const totalAmount = subtotalAmount + shippingAmount;
 
     // Update summary
-    subtotal.textContent = `$${subtotalAmount.toFixed(2)}`;
-    shipping.textContent = shippingAmount === 0 ? 'Free' : `$${shippingAmount.toFixed(2)}`;
-    total.textContent = `$${totalAmount.toFixed(2)}`;
+    subtotal.textContent = `${subtotalAmount.toFixed(2)} JOD`;
+    shipping.textContent = shippingAmount === 0 ? 'Free' : `${shippingAmount.toFixed(2)} JOD`;
+    total.textContent = `${totalAmount.toFixed(2)} JOD`;
 
     // Update cart items
     cartItems.innerHTML = cart.map(item => `
@@ -682,7 +682,7 @@ function updateCartDisplay() {
             <img src="${item.image}" alt="${item.name}" style="width: 80px; height: 80px; object-fit: cover; border-radius: var(--border-radius-md);">
             <div style="flex: 1;">
                 <h3>${item.name}</h3>
-                <div class="item-price">$${item.price.toFixed(2)}</div>
+                <div class="item-price">${item.price.toFixed(2)} JOD</div>
             </div>
             <div style="display: flex; align-items: center; gap: 1rem;">
                 <div class="quantity-controls">
@@ -690,7 +690,7 @@ function updateCartDisplay() {
                     <span class="quantity-display">${item.quantity}</span>
                     <button onclick="updateItemQuantity(${item.id}, 1)" class="quantity-btn">+</button>
                 </div>
-                <div class="item-total">$${(item.price * item.quantity).toFixed(2)}</div>
+                <div class="item-total">${(item.price * item.quantity).toFixed(2)} JOD</div>
                 <button onclick="removeItem(${item.id})" class="remove-item">
                     <i class="fas fa-times"></i>
                 </button>

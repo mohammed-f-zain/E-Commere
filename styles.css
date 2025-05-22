@@ -356,19 +356,7 @@ textarea.form-control {
 
 /* Form Loading State */
 .form-group.loading .form-control {
-    background-image: linear-gradient(90deg, #f8f9fa 0%, #e9ecef 50%, #f8f9fa 100%);
-    background-size: 200% 100%;
-    animation: loading 1.5s infinite;
-}
-
-@keyframes loading {
-    0% {
-        background-position: 200% 0;
-    }
-
-    100% {
-        background-position: -200% 0;
-    }
+    background: #f8f9fa;
 }
 
 /* Form Helper Text */
@@ -623,7 +611,6 @@ textarea.form-control {
 .hero-content {
     text-align: center;
     color: white;
-    animation: fadeInDown 1s ease;
     max-width: 800px;
     margin: 0 auto;
 }
@@ -670,9 +657,6 @@ textarea.form-control {
     padding: var(--spacing-lg) var(--spacing-md);
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
-    animation: fadeInUp 1s cubic-bezier(.39, .575, .56, 1.000);
-    animation-delay: 0.2s;
-    animation-fill-mode: both;
 }
 
 .feature-card i {
@@ -695,7 +679,6 @@ textarea.form-control {
 .best-selling {
     background: var(--background-dark);
     padding: var(--spacing-xl) 0;
-    animation: fadeIn 1.2s cubic-bezier(.39, .575, .56, 1.000);
 }
 
 .section-title {
@@ -904,7 +887,6 @@ textarea.form-control {
 .categories {
     background: var(--background-light);
     padding: var(--spacing-xl) 0;
-    animation: fadeIn 1.2s cubic-bezier(.39, .575, .56, 1.000);
 }
 
 .category-card {
@@ -989,13 +971,11 @@ textarea.form-control {
     text-align: center;
     position: relative;
     overflow: hidden;
-    animation: fadeIn 1.2s cubic-bezier(.39, .575, .56, 1.000);
 }
 
 .cta-content {
     max-width: 500px;
     margin: 0 auto;
-    animation: fadeInUp 1.2s cubic-bezier(.39, .575, .56, 1.000);
 }
 
 .cta h2 {
@@ -1077,9 +1057,7 @@ textarea.form-control {
 .grid-4>*,
 .grid-3>*,
 .grid-2>* {
-    opacity: 0;
-    animation: fadeInUp 1s cubic-bezier(.39, .575, .56, 1.000);
-    animation-fill-mode: both;
+    opacity: 1;
 }
 
 .grid-4>*:nth-child(1),
@@ -1296,7 +1274,6 @@ textarea.form-control {
     font-weight: 700;
     margin-bottom: var(--spacing-lg);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    animation: fadeInDown 1s ease;
 }
 
 .shop-filters {
@@ -1310,7 +1287,6 @@ textarea.form-control {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     border-radius: var(--border-radius-lg);
-    animation: fadeInUp 1s ease;
 }
 
 .filter-group {
@@ -1395,9 +1371,7 @@ textarea.form-control {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('images/pattern.png');
     opacity: 0.1;
-    animation: slideBackground 20s linear infinite;
 }
 
 .contact-hero-content {
@@ -1899,7 +1873,6 @@ textarea.form-control {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
-    animation: fadeInUp 0.5s ease;
     backdrop-filter: blur(10px);
 }
 
@@ -2451,52 +2424,6 @@ textarea.form-control {
     color: var(--text-primary);
 }
 
-.color-options {
-    display: flex;
-    gap: 10px;
-}
-
-.color-option {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    border: 2px solid transparent;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.color-option.active {
-    border-color: var(--primary-color);
-    transform: scale(1.1);
-}
-
-.size-options {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.size-option {
-    padding: 8px 15px;
-    border: 1px solid #e0e0e0;
-    border-radius: var(--border-radius-md);
-    background: white;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: 500;
-}
-
-.size-option:hover {
-    border-color: var(--primary-color);
-    background: #f8f9fa;
-}
-
-.size-option.active {
-    background: var(--primary-color);
-    color: white;
-    border-color: var(--primary-color);
-}
-
 /* Quantity Selector */
 .quantity-selector {
     display: flex;
@@ -2658,9 +2585,7 @@ textarea.form-control {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('images/pattern.png');
     opacity: 0.1;
-    animation: slideBackground 20s linear infinite;
 }
 
 .about-hero-content {
@@ -2678,13 +2603,11 @@ textarea.form-control {
     background: linear-gradient(to right, #fff, #e0e0e0);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: fadeInDown 1s ease;
 }
 
 .about-hero p {
     font-size: 1.5rem;
     color: rgba(255, 255, 255, 0.9);
-    animation: fadeInUp 1s ease;
 }
 
 .about-hero-shape {
@@ -2843,7 +2766,7 @@ textarea.form-control {
 
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 40px;
 }
 
@@ -2863,34 +2786,6 @@ textarea.form-control {
     height: 400px;
     object-fit: cover;
     transition: transform 0.5s ease;
-}
-
-.member-social {
-    position: absolute;
-    bottom: -50px;
-    left: 0;
-    width: 100%;
-    padding: 15px;
-    background: rgba(255, 255, 255, 0.9);
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    transition: bottom 0.3s ease;
-}
-
-.member-image:hover .member-social {
-    bottom: 0;
-}
-
-.member-social a {
-    color: var(--primary-color);
-    font-size: 1.2rem;
-    transition: all 0.3s ease;
-}
-
-.member-social a:hover {
-    color: var(--secondary-color);
-    transform: translateY(-3px);
 }
 
 .team-member h3 {
@@ -2992,9 +2887,7 @@ textarea.form-control {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('images/pattern.png');
     opacity: 0.1;
-    animation: slideBackground 20s linear infinite;
 }
 
 .cta-content {
@@ -3124,9 +3017,7 @@ textarea.form-control {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('images/pattern.png');
     opacity: 0.1;
-    animation: slideBackground 20s linear infinite;
 }
 
 .order-complete-content {
@@ -3140,14 +3031,12 @@ textarea.form-control {
     backdrop-filter: blur(10px);
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow-lg);
-    animation: fadeInUp 0.5s ease;
 }
 
 .order-icon {
     font-size: 5rem;
     color: #4CAF50;
     margin-bottom: 1.5rem;
-    animation: scaleIn 0.5s ease;
 }
 
 .order-complete-content h1 {

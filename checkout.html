@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - StyleHub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">StyleHub</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shop</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <div class="auth-links">
+                    <a href="login.html" class="login-link login-bttn">Login</a>
+                </div>
+                <a href="cart.html" class="cart-badge" data-count="0">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+            </div>
+            <div class="hamburger-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Checkout Section -->
+    <section class="checkout-section">
+        <div class="container">
+            <h1 class="text-center mb-3">Checkout</h1>
+            <div class="checkout-container grid grid-2">
+                <div class="checkout-form card">
+                    <div class="form-tabs">
+                        <button class="tab-btn active" data-tab="shipping">Shipping</button>
+                        <button class="tab-btn" data-tab="payment">Payment</button>
+                    </div>
+
+                    <form id="checkoutForm">
+                        <!-- Shipping Information -->
+                        <div class="form-tab active" id="shipping-tab">
+                            <h2>Shipping Information</h2>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="fullname">Full Name</label>
+                                    <input type="text" id="fullname" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <input type="text" id="address" class="form-control" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="city">City</label>
+                                    <input type="text" id="city" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="zip">ZIP Code</label>
+                                    <input type="text" id="zip" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="country">City</label>
+                                <select id="country" class="form-control" required>
+                                    <option value="">Select City</option>
+                                    <option value="Amman">Amman</option>
+                                    <option value="Zarqa">Zarqa</option>
+                                    <option value="Irbid">Irbid</option>
+                                    <option value="Al-Salt">Al-Salt</option>
+                                    <option value="Al-Karak">Al-Karak</option>
+                                    <option value="Madaba">Madaba</option>
+                                    <option value="Aqaba">Aqaba</option>
+                                    <option value="Jerash">Jerash</option>
+                                    <option value="Al-Mafraq">Al-Mafraq</option>
+                                    <option value="Al-Tafilah">Al-Tafilah</option>
+                                    <option value="Ma'an">Ma'an</option>
+                                </select>
+                            </div>
+                            <button type="button" class="btn btn-block next-tab">Continue to Payment</button>
+                        </div>
+
+                        <!-- Payment Information -->
+                        <div class="form-tab" id="payment-tab">
+                            <h2>Payment Method</h2>
+                            <div class="payment-methods">
+                                <div class="payment-method active" data-method="card">
+                                    <i class="fas fa-credit-card"></i>
+                                    <span>Credit Card</span>
+                                </div>
+                                <div class="payment-method" data-method="cod">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                    <span>Cash on Delivery</span>
+                                </div>
+                            </div>
+
+                            <div class="card-form">
+                                <div class="form-group">
+                                    <label for="cardNumber">Card Number</label>
+                                    <div class="card-input">
+                                        <input type="text" id="cardNumber" class="form-control" maxlength="19" required>
+                                        <i class="fab fa-cc-visa card-type"></i>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="expiry">Expiry Date</label>
+                                        <input type="text" id="expiry" class="form-control" placeholder="MM/YY"
+                                            maxlength="5" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cvv">CVV</label>
+                                        <input type="text" id="cvv" class="form-control" maxlength="3" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cardName">Name on Card</label>
+                                    <input type="text" id="cardName" class="form-control" required>
+                                </div>
+                            </div>
+
+                            <div class="cod-form" style="display: none;">
+                                <p>Pay with cash upon delivery.</p>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-secondary prev-tab">Back to Shipping</button>
+                                <button type="submit" class="btn btn-primary">Place Order</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="order-summary card">
+                    <h2>Order Summary</h2>
+                    <div id="orderSummaryItems" class="order-items"></div>
+                    <div class="summary-item">
+                        <span>Subtotal</span>
+                        <span id="subtotal">$0.00</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Shipping</span>
+                        <span id="shipping">$0.00</span>
+                    </div>
+                    <div class="summary-item total">
+                        <span>Total</span>
+                        <span id="total">$0.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="waves">
+            <div class="wave" id="wave1"></div>
+            <div class="wave" id="wave2"></div>
+            <div class="wave" id="wave3"></div>
+            <div class="wave" id="wave4"></div>
+        </div>
+        <ul class="social-icon">
+            <li class="social-icon__item"><a class="social-icon__link" href="#">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </a></li>
+            <li class="social-icon__item"><a class="social-icon__link" href="#">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                </a></li>
+            <li class="social-icon__item"><a class="social-icon__link" href="#">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                </a></li>
+            <li class="social-icon__item"><a class="social-icon__link" href="#">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </a></li>
+        </ul>
+        <ul class="menu">
+            <li class="menu__item"><a class="menu__link" href="#">Home</a></li>
+            <li class="menu__item"><a class="menu__link" href="#">About</a></li>
+            <li class="menu__item"><a class="menu__link" href="#">Services</a></li>
+            <li class="menu__item"><a class="menu__link" href="#">Team</a></li>
+            <li class="menu__item"><a class="menu__link" href="#">Contact</a></li>
+
+        </ul>
+        <p>&copy;2025 StyleHub | All Rights Reserved</p>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

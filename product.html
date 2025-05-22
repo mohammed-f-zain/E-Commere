@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - StyleHub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">StyleHub</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shop</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <div class="auth-links">
+                    <a href="login.html" class="login-link login-bttn">Login</a>
+                </div>
+                <a href="cart.html" class="cart-badge" data-count="0">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+            </div>
+            <div class="hamburger-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Product Details -->
+    <section class="product-details">
+        <div class="container">
+            <div class="product-container">
+                <div class="product-gallery">
+                    <div class="main-image">
+                        <img id="mainImage" src="" alt="Product Image">
+                    </div>
+                    <div class="thumbnail-list" id="thumbnailList">
+                        <!-- Thumbnails will be dynamically loaded here -->
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h1 id="productName"></h1>
+                    <div class="product-rating" id="productRating"></div>
+                    <div class="product-price" id="productPrice"></div>
+                    <p class="product-description" id="productDescription"></p>
+
+                    <div class="product-options">
+                        <div class="option-group">
+                            <label>Color:</label>
+                            <div class="color-options" id="colorOptions"></div>
+                        </div>
+                        <div class="option-group">
+                            <label>Size:</label>
+                            <div class="size-options" id="sizeOptions"></div>
+                        </div>
+                        <div class="option-group">
+                            <label>Quantity:</label>
+                            <div class="quantity-selector">
+                                <button onclick="updateQuantity(-1)">-</button>
+                                <input type="number" id="quantity" value="1" min="1" max="10">
+                                <button onclick="updateQuantity(1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-actions">
+                        <button onclick="addToCart()" class="btn btn-primary">Add to Cart</button>
+                        <button onclick="addToWishlist()" class="btn btn-secondary">
+                            <i class="far fa-heart"></i> Add to Wishlist
+                        </button>
+                    </div>
+
+                    <div class="product-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-truck"></i>
+                            <span>Free Shipping on orders over $50</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-undo"></i>
+                            <span>30-day return policy</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Secure payment</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="related-products">
+        <div class="container">
+            <h2>You May Also Like</h2>
+            <div class="grid grid-4" id="relatedProducts">
+                <!-- Related products will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+<footer class="footer">
+    <div class="waves">
+        <div class="wave" id="wave1"></div>
+        <div class="wave" id="wave2"></div>
+        <div class="wave" id="wave3"></div>
+        <div class="wave" id="wave4"></div>
+    </div>
+    <ul class="social-icon">
+        <li class="social-icon__item"><a class="social-icon__link" href="#">
+                <ion-icon name="logo-facebook"></ion-icon>
+            </a></li>
+        <li class="social-icon__item"><a class="social-icon__link" href="#">
+                <ion-icon name="logo-twitter"></ion-icon>
+            </a></li>
+        <li class="social-icon__item"><a class="social-icon__link" href="#">
+                <ion-icon name="logo-linkedin"></ion-icon>
+            </a></li>
+        <li class="social-icon__item"><a class="social-icon__link" href="#">
+                <ion-icon name="logo-instagram"></ion-icon>
+            </a></li>
+    </ul>
+    <ul class="menu">
+        <li class="menu__item"><a class="menu__link" href="#">Home</a></li>
+        <li class="menu__item"><a class="menu__link" href="#">About</a></li>
+        <li class="menu__item"><a class="menu__link" href="#">Services</a></li>
+        <li class="menu__item"><a class="menu__link" href="#">Team</a></li>
+        <li class="menu__item"><a class="menu__link" href="#">Contact</a></li>
+
+    </ul>
+    <p>&copy;2025 StyleHub | All Rights Reserved</p>
+</footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Get product ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = parseInt(urlParams.get('id'));
+
+        // Find product
+        const product = products.find(p => p.id === productId);
+        if (!product) {
+            window.location.href = 'shop.html';
+        }
+
+        // Update product details
+        document.getElementById('productName').textContent = product.name;
+        document.getElementById('productPrice').textContent = `$${product.price.toFixed(2)}`;
+        document.getElementById('productDescription').textContent = product.description;
+
+        // Update rating
+        const ratingHtml = `${'★'.repeat(Math.floor(product.rating))}${'☆'.repeat(5 - Math.floor(product.rating))} (${product.rating})`;
+        document.getElementById('productRating').innerHTML = ratingHtml;
+
+        // Update main image
+        document.getElementById('mainImage').src = product.image;
+        document.getElementById('mainImage').alt = product.name;
+
+        // Create thumbnails
+        const thumbnailList = document.getElementById('thumbnailList');
+        thumbnailList.innerHTML = `
+            <div class="thumbnail active" onclick="changeImage('${product.image}')">
+                <img src="${product.image}" alt="${product.name}">
+            </div>
+        `;
+
+        // Create color options
+        const colorOptions = document.getElementById('colorOptions');
+        colorOptions.innerHTML = product.colors.map(color => `
+            <button class="color-option" style="background-color: ${color.toLowerCase()}" onclick="selectColor('${color}')"></button>
+        `).join('');
+
+        // Create size options
+        const sizeOptions = document.getElementById('sizeOptions');
+        sizeOptions.innerHTML = product.sizes.map(size => `
+            <button class="size-option" onclick="selectSize('${size}')">${size}</button>
+        `).join('');
+
+        // Show related products
+        const relatedProducts = products
+            .filter(p => p.category === product.category && p.id !== product.id)
+            .slice(0, 4);
+        displayProducts(relatedProducts, 'relatedProducts');
+
+        // Functions
+        function changeImage(src) {
+            document.getElementById('mainImage').src = src;
+            document.querySelectorAll('.thumbnail').forEach(thumb => {
+                thumb.classList.remove('active');
+                if (thumb.querySelector('img').src === src) {
+                    thumb.classList.add('active');
+                }
+            });
+        }
+
+        function selectColor(color) {
+            document.querySelectorAll('.color-option').forEach(option => {
+                option.classList.remove('active');
+                if (option.style.backgroundColor === color.toLowerCase()) {
+                    option.classList.add('active');
+                }
+            });
+        }
+
+        function selectSize(size) {
+            document.querySelectorAll('.size-option').forEach(option => {
+                option.classList.remove('active');
+                if (option.textContent === size) {
+                    option.classList.add('active');
+                }
+            });
+        }
+
+        function updateQuantity(change) {
+            const input = document.getElementById('quantity');
+            const newValue = parseInt(input.value) + change;
+            if (newValue >= 1 && newValue <= 10) {
+                input.value = newValue;
+            }
+        }
+
+        function addToCart() {
+            const quantity = parseInt(document.getElementById('quantity').value);
+            addToCart(product.id, quantity);
+        }
+
+        function addToWishlist() {
+            // Implement wishlist functionality
+            showNotification('Added to wishlist!');
+        }
+    </script>
+</body>
+
+</html>
